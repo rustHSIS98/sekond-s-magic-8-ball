@@ -1,0 +1,10 @@
+{
+    "name": "Sekond's 8 Ball",
+    "short_name": "8 Ball",
+    "description": "A simple Magic 8 Ball.",
+    "start_url": "./",
+    "display": "standalone",
+    "background_color": "#050505",
+    "theme_color": "#050505",
+    "orientation": "portrait"
+}

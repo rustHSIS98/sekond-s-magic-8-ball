@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    min-height: 100svh;
+
+    background: #050505;
+    color: white;
+
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+    gap: 28px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+#ball {
+    width: min(78vw, 360px);
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #454545 0%,
+            #171717 25%,
+            #080808 60%,
+            #000000 100%
+        );
+
+    box-shadow:
+        inset -18px -22px 35px rgba(0, 0, 0, 0.9),
+        inset 12px 12px 25px rgba(255, 255, 255, 0.08),
+        0 25px 50px rgba(0, 0, 0, 0.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    transition: transform 0.15s ease;
+}
+
+#ball::before {
+    content: "";
+
+    position: absolute;
+
+    width: 22%;
+    height: 22%;
+
+    top: 17%;
+    left: 27%;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    filter: blur(12px);
+}
+
+#window {
+    width: 38%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: #f4f4f4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.25),
+        0 4px 10px rgba(0, 0, 0, 0.5);
+
+    overflow: hidden;
+}
+
+#answer {
+    color: #111;
+
+    text-align: center;
+
+    font-size: clamp(18px, 5vw, 25px);
+    font-weight: 800;
+}
+
+#status {
+    margin: 0;
+
+    color: #aaa;
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+button {
+    border: 0;
+    border-radius: 999px;
+
+    padding: 15px 35px;
+
+    background: white;
+    color: black;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s ease,
+        opacity 0.1s ease;
+}
+
+button:active {
+    transform: scale(0.94);
+    opacity: 0.75;
+}
+
+.shaking {
+    animation: shake 0.7s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    15% {
+        transform: rotate(-12deg) translate(-8px, -4px);
+    }
+
+    30% {
+        transform: rotate(12deg) translate(8px, 4px);
+    }
+
+    45% {
+        transform: rotate(-10deg) translate(-7px, 3px);
+    }
+
+    60% {
+        transform: rotate(10deg) translate(7px, -3px);
+    }
+
+    75% {
+        transform: rotate(-6deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
