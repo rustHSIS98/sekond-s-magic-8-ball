@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+#ball {
+    width: min(86vw, 380px);
+    aspect-ratio: 1;
+
+    position: relative;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 28%,
+            #303030 0%,
+            #171717 30%,
+            #090909 67%,
+            #000 100%
+        );
+
+    box-shadow:
+        inset -28px -32px 45px rgba(0, 0, 0, 0.95),
+        inset 10px 12px 22px rgba(255, 255, 255, 0.07),
+        0 18px 45px rgba(0, 0, 0, 0.8);
+
+    user-select: none;
+}
+
+#ball::before {
+    content: "";
+
+    position: absolute;
+
+    width: 34%;
+    height: 18%;
+
+    top: 8%;
+    left: 19%;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    filter: blur(16px);
+
+    transform: rotate(-25deg);
+}
+
+#window {
+    position: absolute;
+
+    width: 39%;
+    aspect-ratio: 1;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #fff 0%,
+            #e9e9e9 65%,
+            #cfcfcf 100%
+        );
+
+    box-shadow:
+        inset 0 3px 7px rgba(0, 0, 0, 0.18),
+        0 5px 12px rgba(0, 0, 0, 0.65);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+#answer {
+    color: #111;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        sans-serif;
+
+    font-size: clamp(18px, 5vw, 26px);
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+    text-align: center;
+}
+
+.shaking {
+    animation: shake 0.65s cubic-bezier(.36,.07,.19,.97);
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0) rotate(0);
+    }
+
+    12% {
+        transform: translate(-9px, 5px) rotate(-5deg);
+    }
+
+    24% {
+        transform: translate(8px, -7px) rotate(5deg);
+    }
+
+    36% {
+        transform: translate(-7px, -5px) rotate(-4deg);
+    }
+
+    48% {
+        transform: translate(8px, 6px) rotate(4deg);
+    }
+
+    60% {
+        transform: translate(-5px, 2px) rotate(-2deg);
+    }
+
+    72% {
+        transform: translate(4px, -2px) rotate(2deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
